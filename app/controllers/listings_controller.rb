@@ -11,7 +11,13 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listing_params)
-    @listing.save
+    if @listing.save
+      flash[:success] = "Listing successfully created"
+      redirect_to listing_path(@listing)
+    else
+      flash[:error] = "Something went wrong"
+      render 'new'
+    end
   end
 
   def show
