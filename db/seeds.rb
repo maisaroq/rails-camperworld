@@ -5,3 +5,37 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+
+puts "Deleting all prior users and listings"
+User.destroy_all
+Listing.destroy_all
+
+puts "--Creating 15 fake users"
+15.times do
+  user = User.new(
+    email: Faker::Internet.email,
+    password: Faker::Internet.password
+  )
+  user.save!
+  print "#{user.id} "
+end
+puts ""
+puts "---Done creating users!"
+puts ""
+puts "---Creating 20 fake products..."
+20.times do
+  listing = Listing.new(
+    name: Faker::Commerce.product_name,
+    description: Faker::Lorem.paragraph,
+    price: Faker::Commerce.price,
+    equipment_type: ["Tent", "Campervan", "Cooker", "Survival Kit", "Backpack"].sample,
+    image: "https://source.unsplash.com/random",
+    user_id: rand(1..10)
+  )
+  puts listing.name
+  listing.save!
+end
+puts "---Done creating products!"
