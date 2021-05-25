@@ -1,4 +1,6 @@
 class ListingsController < ApplicationController
+  before_action :set_listing, only: [:show]
+  
   def index
     @listings = policy_scope(Listing) # refers to the listing_policy and resolce method
   end
@@ -13,10 +15,13 @@ class ListingsController < ApplicationController
   end
 
   def show
-    @listing = Listing.find()
   end
 
   private
+
+  def set_listing
+    @listing = Listing.find(params[:id])
+  end
 
   def listing_params
     params.require(:listing).permit(:name, :description, :price, :equipment_type, :image)
