@@ -1,7 +1,18 @@
 .navbar-lewagon {
+
+  background: #C4C4C4;
+  width: 100%;
+  font-family: Roboto;
+  font-size: 18px;
+  display: flex;
   justify-content: space-between;
-  background: white;
+  position: absolute;
+  height: 50px;
+
+
+
 }
+
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
