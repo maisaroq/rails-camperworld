@@ -1,1 +1,26 @@
+<body>
 
+  <header>
+    <div class="container" justify-content-center>
+      <h1>Here are all the listings!</h1>
+    </div>
+  </header>
+
+  <main>
+    <div class="container" >
+      <div class="row">
+          <% @listings.each do |listing| %>
+            <div class="col-3">
+              <%= link_to listing_path(listing) do %>
+                  <div class="card">
+                      <img class="card-img-top" alt="Card image cap" src=<%= listing.image %>>
+                      <h4><%= listing.name %> | €<%= listing.price %></h4>
+                      <p><%= listing.description %> </p>
+                  </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+    </div>
+  </main>
+</body>

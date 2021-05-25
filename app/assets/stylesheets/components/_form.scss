@@ -1,0 +1,54 @@
+#homeform {
+  width:400px;
+  border: 1px solid;
+  border-radius: 10px;
+  margin-left:100px;
+  margin-top: 100px;
+  background-color: #C4C4C4;
+  padding:15px;
+  border:none;
+  height: 150px;
+  opacity: 0.8;
+
+
+}
+
+#date {
+padding-top: 5px;
+margin-top: 25px;
+margin-right: 50px;
+background-color:white;
+
+}
+
+#location{
+  padding-top: 5px;
+  border:none;
+  background-color:white;
+  margin: auto
+}
+
+#icon{
+  display:flex;
+  margin: auto;
+  padding: 5px;
+  background-color: white;
+  height: 100%;
+  font-size: 20px;
+
+}
+
+
+
+#inputlocation{
+  border:none;
+}
+
+#dateinput{
+  border: none;
+}
+
+.dateSearh{
+  display:flex;
+}
+

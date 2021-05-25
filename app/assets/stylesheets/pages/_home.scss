@@ -1,1 +1,19 @@
-// Specific CSS for your home-page
+p {
+  padding:10px;
+}
+
+.homecontainer{
+
+  background-image:url(home.jpg);
+  height: 100vh;
+  background-size:cover;
+}
+
+
+h1 {
+  width:600px;
+  margin-left:100px;
+  margin-top: 50px;
+  font-family: Roboto;
+}
+
