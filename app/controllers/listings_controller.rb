@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show]
-  
+
   def index
     @listings = policy_scope(Listing) # refers to the listing_policy and resolce method
   end
