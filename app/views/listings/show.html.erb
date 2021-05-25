@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="col-xs-1" align="center">
+    <h1><strong><%= @listing.name %></strong></h1>
+
+  <!--   <p><%= link_to "listings", @listing %></p>
+
+    <p><%= link_to "listings", listings_path %></p> -->
+
+    <p><%= link_to 'Back', :back%></p>
+    <div class="text-left">
+      <p><%= @listing.name %></p>
+      <p><%= @listing.description %></p>
+      <p><%= @listing.price %></p>
+      <p><%= @listing.equipment_type %></p>
+      <p><%= @listing.image %></p>
+    </div>
+  </div>
+</div>
+
+<!-- bellow from components on kitt -->
+
+<!-- <div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= @listing.name %></h2>
+      <p><%= @listing.description %></p>
+    </div>
+    <h2 class="card-trip-pricing">£99.99</h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
+</div> -->
+
+
+
