@@ -1,8 +1,7 @@
 class ListingsController < ApplicationController
   def index
-    @listings = Listing.all
+    @listings = policy_scope(Listing) # refers to the listing_policy and resolce method
   end
-  
 
   def new
     @listing = Listing.new
@@ -12,7 +11,7 @@ class ListingsController < ApplicationController
     @listing = Listing.new(listing_params)
     @listing.save
   end
-  
+
   def show
     @listing = Listing.find()
   end
