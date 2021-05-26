@@ -8,16 +8,12 @@
 
 #require 'faker'
 
-
 #puts "Deleting all prior users and listings"
 #User.destroy_all
 #Listing.destroy_all
 
-
 user = User.new(email: 'camperworld@gmail.com', password: '123456')
 #Listing.create!(user: User.first, name: "tent", description: "a dark green tent was made in 1970 served campers from all over the world 7777777777", price: 20.00, location: "Berlin",equipment_type: "Tent", image: "https://res.cloudinary.com/dnyvpez5a/image/upload/v1622019740/q7gx5wucnfh3g1c2vvij0ebebfbi.jpg")
-
-
 
 #puts "--Creating 15 fake users"
 #15.times do
@@ -45,3 +41,4 @@ user = User.new(email: 'camperworld@gmail.com', password: '123456')
 #  listing.save!
 #end
 #puts "---Done creating products!"
+
