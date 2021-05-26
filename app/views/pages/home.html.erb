@@ -1,4 +1,5 @@
 <div class ="homecontainer">
+  <div class="container">
   <h1>Find the perfect accompaniment for your next adventure</h1>
 
  <!--  <form id = "homeform">
@@ -16,10 +17,12 @@
       <button class ="search" id ="searchBtn" type="submit">Search</button>
 
     </div>
+<<<<<<< HEAD
   </form> -->
   <%= simple_form_for :search, url: listings_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-  <%= f.input :location, input_html: {value: ""} %>
-  <%= f.submit "Search", class: "btn btn-primary" %>
-<% end %>
+    <%= f.input :location, input_html: {value: ""} %>
+    <%= f.submit "Search", class: "btn btn-primary" %>
+  <% end %>
 
+  </div>
 </div>
