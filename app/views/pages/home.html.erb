@@ -2,9 +2,11 @@
   <div class="container">
     <h1>Whatever your outdoor heart desires: <span id="banner-typed-text"></span></h1>
 
-    <%= simple_form_for :search, url: listings_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-      <%= f.input :location, input_html: {value: ""} %>
-      <%= f.submit "Search", class: "btn btn-primary" %>
+    <%= simple_form_for :search, url: listings_path, method: "GET" do |f| %>
+      <div class="search-form-control form-group">
+        <%= f.input :location, input_html: {value: "" , class: "form-control string required" }, placeholder: "search for a location", type:"text", name:"search[query]", id:"search_query" %>
+        <%= f.submit "search", class: "btn btn-flat" %>
+      </div>
     <% end %>
   </div>
 </div>
