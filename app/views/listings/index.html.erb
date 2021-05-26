@@ -11,7 +11,6 @@
         <div class="col col-sm-6 col-lg-3">
           <%= link_to listing_path(listing) do %>
             <div class="card">
-              <%= cl_image_tag listing.image.key, class: "card-img-top" %>
               <h4><%= listing.name %> | €<%= listing.price %> | <%= listing.location%></h4>
               <p><%= listing.description %> </p>
             </div>
