@@ -1,5 +1,11 @@
-.homecontainer {
+html, body {
   height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.homecontainer {
+  height: calc(100% - 56px);
   background-image:url(home.jpg);
   background-size:cover;
 }
