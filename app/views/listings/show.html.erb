@@ -9,7 +9,7 @@
       <p><%= @listing.price %></p>
       <p><%= @listing.equipment_type %></p>
       <p><%= @listing.location %></p>
-      <p><%= @listing.image %></p>
+      <%= cl_image_tag @listing.image.key %>
     </div>
   </div>
 </div>
