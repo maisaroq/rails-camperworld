@@ -1,16 +1,14 @@
-p {
+.navbar-lewagon p {
   padding:10px;
 }
 
-.homecontainer{
-
+.homecontainer {
   background-image:url(home.jpg);
   height: 100vh;
   background-size:cover;
 }
 
-
-h1 {
+.homecontainer h1 {
   width:600px;
   margin-left:100px;
   margin-top: 50px;
