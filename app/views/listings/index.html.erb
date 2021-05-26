@@ -1,26 +1,38 @@
 <header>
   <div class="container" justify-content-center>
-    <h1>Here are all the listings!</h1>
+    <h1>Available listings</h1>
   </div>
 </header>
 
 <main>
+
   <div class="container" >
+    <%= simple_form_for :search, url: listings_path, method: :get do |f| %>
+      <div class="search-form-control form-group">
+        <input class="form-control string required" placeholder="search for another location" type="text" name="search[query]" id="search_query" />
+        <button name="button" type="submit" class="btn btn-flat">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    <% end %>
+
     <div class="row">
       <% @listings.each do |listing| %>
-        <div class="col col-sm-6 col-lg-3">
+        <!-- <div class="col col-sm-6 col-lg-3"> -->
           <%= link_to listing_path(listing) do %>
-            <div class="card">
-              <h4><%= listing.name %> | €<%= listing.price %> | <%= listing.location%></h4>
-              <p><%= listing.description %> </p>
+            <div class="card-trip">
+              <%= cl_image_tag listing.image.key %>
+              <div class="card-trip-infos">
+                <div>
+                  <h2><%= listing.name %> | <%= listing.location %></h2>
+                  <p><%= listing.description %></p>
+                </div>
+                <h2 class="card-trip-pricing">€<%= listing.price %></h2>
+              </div>
             </div>
           <% end %>
-        </div>
+        <!-- </div> -->
       <% end %>
     </div>
-    <%= link_to icon('fas', 'plus'), new_listing_path %>
   </div>
 </main>
-
-
-
