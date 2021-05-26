@@ -19,7 +19,6 @@ class ListingsController < ApplicationController
       flash[:error] = "Something went wrong"
       render 'new'
     end
-    raise
   end
 
   def show
