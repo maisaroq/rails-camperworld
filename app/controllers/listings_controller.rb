@@ -19,7 +19,7 @@ class ListingsController < ApplicationController
       flash[:error] = "Something went wrong"
       render 'new'
     end
-    raise
+
   end
 
   def show
@@ -32,6 +32,6 @@ class ListingsController < ApplicationController
   end
 
   def listing_params
-    params.require(:listing).permit(:name, :description, :price, :equipment_type, :image)
+    params.require(:listing).permit(:name, :description, :price, :equipment_type, :location, :image)
   end
 end

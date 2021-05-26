@@ -14,7 +14,7 @@
               <%= link_to listing_path(listing) do %>
                   <div class="card">
                       <img class="card-img-top" alt="Card image cap" src=<%= listing.image %>>
-                      <h4><%= listing.name %> | €<%= listing.price %></h4>
+                      <h4><%= listing.name %> | €<%= listing.price %> | <%= listing.location%></h4>
                       <p><%= listing.description %> </p>
                   </div>
               <% end %>
