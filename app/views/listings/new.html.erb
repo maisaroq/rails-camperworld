@@ -11,9 +11,9 @@
         <%= f.input :equipment_type %>
         <%= f.input :location %>
         <%= f.input_field :image, as: :file %>
-        <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center btn">
+          <%= link_to icon('fas', 'times', "Cancel"), listings_path, class: "btn" %>
           <%= f.submit %>
-          <%= link_to icon('fas', 'times'), listings_path %>
         </div>
       <% end %>
     </div>
