@@ -1,17 +1,25 @@
 <div class ="homecontainer">
   <h1>Find the perfect accompaniment for your next adventure</h1>
-  <form id = "homeform">
+
+ <!--  <form id = "homeform">
     <div class="input-group flex-nowrap" id="location">
       <i class="fas fa-search" id="icon"></i>
-      <input type="text" class="form-control" placeholder="enter a location" aria-label="Username" aria-describedby="addon-wrapping" id="inputlocation">
+      <input type="text" class="form-control" placeholder="Berlin" aria-label="Username" aria-describedby="addon-wrapping" id="inputlocation">
     </div>
     <div class ="dateSearh">
+
       <div class="input-group flex-nowrap" id="date">
         <i class="fas fa-calendar-week" id="icon"></i>
-        <input type="date" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" id ="dateinput">
+        <input type="date" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" id ="dateinput" placeholder="Berlin">
 
       </div>
-      <a class ="search" id ="searchBtn">search</a>
+      <button class ="search" id ="searchBtn" type="submit">Search</button>
+
     </div>
-  </form>
+  </form> -->
+  <%= simple_form_for :search, url: listings_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+  <%= f.input :location, input_html: {value: ""} %>
+  <%= f.submit "Search", class: "btn btn-primary" %>
+<% end %>
+
 </div>

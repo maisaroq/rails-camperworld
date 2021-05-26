@@ -3,7 +3,18 @@ class ListingsController < ApplicationController
 
   def index
     @listings = policy_scope(Listing) # refers to the listing_policy and resolce method
+    @search = params["search"]
+    if @search.present?
+      @location = @search["location"]
+      @listings = Listing.where(location: @location)
+    end
   end
+
+  # def search
+  #   # q means query
+  #   # so the name of the location can be anywhere in the provided location
+  #   @listings = Listing.where("location LIKE ?", "%" + params[:q] + "%")
+  # end
 
   def new
     @listing = Listing.new
