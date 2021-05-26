@@ -3,6 +3,7 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin: 16px;
+  border-radius: 12px;
 }
 
 .card-trip > img {
@@ -15,12 +16,16 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  color: #47493B;
+  padding-bottom:8px;
+  padding-right:8px;
 }
 
 .card-trip p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
+  color: black;
 }
 
 
@@ -28,7 +33,6 @@
   padding: 16px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
   position: relative;
 }
 

@@ -1,6 +1,6 @@
 <header>
   <div class="container" justify-content-center>
-    <h1>Available listings</h1>
+    <h1>Available listings in <%= params[:search] %></h1>
   </div>
 </header>
 
@@ -18,7 +18,7 @@
 
     <div class="row">
       <% @listings.each do |listing| %>
-        <!-- <div class="col col-sm-6 col-lg-3"> -->
+        <div class="col col-sm-6 col-lg-4">
           <%= link_to listing_path(listing) do %>
             <div class="card-trip">
               <%= cl_image_tag listing.image.key %>
@@ -31,7 +31,7 @@
               </div>
             </div>
           <% end %>
-        <!-- </div> -->
+        </div>
       <% end %>
     </div>
   </div>
