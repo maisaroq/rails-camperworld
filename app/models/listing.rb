@@ -4,12 +4,11 @@ class Listing < ApplicationRecord
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
 
-  TYPE = ["Van", "Tent", "Cooker", "Technology", "Survival Kit", "Backpack", "Other"]
+  TYPE = ["Campervan", "Tent", "Cooker", "Technology", "Survival Kit", "Backpack", "Other"]
 
   has_many :reservations
 
-  validates :name, :price, presence: true
+  validates :name, :price, :location, presence: true
   validates :description, presence: :true, length: { minimum: 10 }
-  validates :location, presence: true
-  validates :equipment_type, inclusion: { in: TYPE }
+  validates :equipment_type, presence: true, inclusion: { in: TYPE }
 end

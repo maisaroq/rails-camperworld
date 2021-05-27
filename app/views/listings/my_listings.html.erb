@@ -12,7 +12,7 @@
           <%= link_to listing_path(listing) do %>
             <div class="card-trip">
               <% if listing.photo.attached? %>
-                <%= cl_image_tag listing.photo.key, class: "h-25 d-inline-bloc" %>
+                <%= cl_image_tag listing.photo.key %>
               <% else %>
                 <%= image_tag(listing.listing_photo)%>
               <% end %>
