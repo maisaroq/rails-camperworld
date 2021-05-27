@@ -7,14 +7,14 @@
 <main>
 
   <div class="container" >
-    <%= simple_form_for :search, url: listings_path, method: :get do |f| %>
+    <%= simple_form_for :search, url: listings_path, method: "GET" do |f| %>
       <div class="search-form-control form-group">
-        <input class="form-control string required" placeholder="search for another location" type="text" name="search[query]" id="search_query" />
-        <button name="button" type="submit" class="btn btn-flat">
-          <i class="fas fa-search"></i>
-        </button>
+        <%= f.input :location, input_html: {value: "" , class: "form-control string required", autocomplete: "off"  }, placeholder: "search for another location", type:"text", name:"search[query]", id:"search_query" %>
+        <%= f.submit "search", class: "btn btn-flat" %>
       </div>
     <% end %>
+    <br>
+
 
     <div class="row">
       <% @listings.each do |listing| %>
