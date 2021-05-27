@@ -21,7 +21,11 @@
         <div class="col col-sm-6 col-lg-4">
           <%= link_to listing_path(listing) do %>
             <div class="card-trip">
-              <%= cl_image_tag listing.image.key %>
+              <% if listing.photo.attached? %>
+                <%= cl_image_tag listing.image.key %>
+              <% else %>
+                <%= image_tag(listing.image)%>
+              <% end %>
               <div class="card-trip-infos">
                 <div>
                   <h2><%= listing.name %> | <%= listing.location %></h2>
