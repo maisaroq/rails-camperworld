@@ -1,27 +1,30 @@
-<h1> All your listings: </h1>
-
-<% @listings.each do |listing| %>
-  <%= listing.name %>
-<% end %>
+<header>
+  <div class="container" justify-content-center>
+     <h1> All your listings <%= current_user.email %> : </h1>
+  </div>
+</header>
 
 <main>
   <div class="container" >
     <div class="row">
       <% @listings.each do |listing| %>
-        <div class="col col-sm-6 col-lg-4">
+        <div class="col">
           <%= link_to listing_path(listing) do %>
             <div class="card-trip">
               <% if listing.photo.attached? %>
-                <%= cl_image_tag listing.photo.key %>
+                <%= cl_image_tag listing.photo.key, class: "h-25 d-inline-bloc" %>
               <% else %>
                 <%= image_tag(listing.listing_photo)%>
               <% end %>
               <div class="card-trip-infos">
                 <div>
-                  <h2><%= listing.name %> | <%= listing.location %></h2>
+                  <h2><%= listing.name %> | <%= listing.location %> | €<%= listing.price %></h2>
                   <p><%= listing.description %></p>
                 </div>
-                <h2 class="card-trip-pricing">€<%= listing.price %></h2>
+                <div>
+                  <%= link_to icon('fas fa-edit', "Edit"), edit_listing_path(listing), class: "btn" %>
+                  <%= link_to icon('fas fa-trash', 'Delete'), listing_path(listing), method: :delete, class: "btn" %>
+                </div>
               </div>
             </div>
           <% end %>
