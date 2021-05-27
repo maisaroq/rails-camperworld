@@ -20,8 +20,8 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Profile", "#", class: "dropdown-item" %>
             <%= link_to icon('fas', 'comments'), "#", class: "dropdown-item" %>
-            <%= link_to "My Reservations", "#", class: "dropdown-item" %>
-            <%= link_to "My Listings", "#", class: "dropdown-item" %>
+            <%#= link_to "My Reservations", listing_reservation_my_reservations_path, class: "dropdown-item" %>
+            <%= link_to "My Listings", my_listings_listings_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
