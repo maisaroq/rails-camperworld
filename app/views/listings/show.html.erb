@@ -6,6 +6,10 @@
     <div class="col-8">
       <h1 class="text-center"><strong><%= @listing.name %></strong></h1>
     </div>
+    <div class ="showBtn col-2">
+        <%= link_to icon('fas fa-edit', "Edit"), edit_listing_path(@listing),class: "btn btn-flat"%>
+        <%= link_to icon('fas fa-trash', 'Delete'), listing_path, method: :delete, class: "btn btn-flat" %>
+    </div>
   </div>
 
   <div class="row justify-content-center">
@@ -29,9 +33,8 @@
           <%= f.button :submit, "Reserve", class: "btn" %>
         <% end %>
       </div>
+
+
     </div>
   </div>
 </div>
-
-<%= link_to 'Edit', edit_listing_path(@listing),class: "btn btn-flat" %>
-<%= link_to 'Delete', listing_path, method: :delete, class: "btn btn-flat" %>
