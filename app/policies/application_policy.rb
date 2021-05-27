@@ -7,7 +7,7 @@ class ApplicationPolicy
   end
 
   def index?
-    true # not the best practice -> better to set it precisely in the _policy.rb
+    false # not the best practice -> better to set it to true precisely in the _policy.rb
   end
 
   def show?
