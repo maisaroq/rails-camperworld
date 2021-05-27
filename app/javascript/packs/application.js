@@ -35,12 +35,12 @@ document.addEventListener('turbolinks:load', () => {
 
 import { initFlatpickr } from "../plugins/flatpickr";
 import { loadDynamicBannerText } from '../components/banner';
+import { initMapbox } from '../plugins/init_mapbox';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   // [...]
   initFlatpickr();
   loadDynamicBannerText();
+  initMapbox();
 });
-
-

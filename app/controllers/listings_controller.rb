@@ -11,6 +11,13 @@ class ListingsController < ApplicationController
       @listings = Listing.where("location ILIKE ?", "%#{@location}%")
     end
     @listings = policy_scope(Listing)
+
+    @markers = @listings.geocoded.map do |listing|
+      {
+        lat: listing.latitude,
+        lng: listing.longitude
+      }
+    end
   end
 
   def new
