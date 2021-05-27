@@ -29,7 +29,7 @@ puts user.id
 #puts ""
 #puts "---Creating 20 fake products..."
 20.times do
-  Listing.create!(
+  listing = Listing.create!(
     name: "name",
     description: "description88888888888888888888888888888888888888888888888888jhdcjhuchehduehuehueiejihihigugugugfuyfyfyuihihih shjh",
     price: 20.00,
@@ -38,8 +38,8 @@ puts user.id
     user_id: user.id,
     location: "Berlin"
   )
+  puts listing.name
 end
-puts user.id
-puts Listing.all
+
 puts "---Done creating products!"
 
