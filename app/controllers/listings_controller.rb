@@ -13,12 +13,6 @@ class ListingsController < ApplicationController
     @listings = policy_scope(Listing)
   end
 
-  # def search
-  #   # q means query
-  #   # so the name of the location can be anywhere in the provided location
-  #   @listings = Listing.where("location LIKE ?", "%" + params[:q] + "%")
-  # end
-
   def new
     @listing = Listing.new
   end
@@ -36,6 +30,7 @@ class ListingsController < ApplicationController
   end
 
   def show
+    @listing = Listing.find(params[:id]) # this should be done automatically though ?? ....
   end
 
   def edit

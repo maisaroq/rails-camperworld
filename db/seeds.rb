@@ -34,7 +34,7 @@ puts user.id
     description: "description88888888888888888888888888888888888888888888888888jhdcjhuchehduehuehueiejihihigugugugfuyfyfyuihihih shjh",
     price: 20.00,
     equipment_type: ["Tent", "Campervan", "Cooker", "Survival Kit", "Backpack"].sample,
-    image: "https://source.unsplash.com/random",
+    listing_photo: "https://source.unsplash.com/random",
     user_id: user.id,
     location: "Berlin"
   )
