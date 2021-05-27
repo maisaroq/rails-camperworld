@@ -10,9 +10,9 @@
   <div class="row justify-content-center">
     <div class="col-4">
       <% if @listing.photo.attached? %>
-        <%= cl_image_tag @listing.image.key, class: "img-responsive", width: "100%" %>
+        <%= cl_image_tag @listing.photo.key, class: "img-responsive", width: "100%" %>
       <% else %>
-        <%= image_tag(@listing.image, class: "img-responsive", width: "100%") %>
+        <%= image_tag(@listing.listing_photo, class: "img-responsive", width: "100%") %>
       <% end %>
     </div>
     <div class="listing-info col-6">
@@ -31,20 +31,3 @@
     </div>
   </div>
 </div>
-
-<!-- bellow from components on kitt -->
-
-<!-- <div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-  <div class="card-trip-infos">
-    <div>
-      <h2><%= @listing.name %></h2>
-      <p><%= @listing.description %></p>
-    </div>
-    <h2 class="card-trip-pricing">£99.99</h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-  </div>
-</div> -->
-
-
-
