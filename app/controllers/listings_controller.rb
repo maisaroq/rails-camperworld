@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_listing, only: [:show]
+  before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
   def index
      # refers to the listing_policy and resolce method
@@ -39,10 +39,21 @@ class ListingsController < ApplicationController
   end
 
   def edit
+    authorize @listing
   end
 
   def update
-    @listing.update(listing_params)
+    if @listing.update(listing_params)
+      redirect_to listing_path(@listing)
+    else
+      render :edit
+    end
+    authorize @listing
+  end
+
+  def destroy
+    @listing.destroy
+    redirect_to listings_path
   end
 
   private

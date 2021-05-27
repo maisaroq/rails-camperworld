@@ -1,0 +1,12 @@
+<%= simple_form_for @listing do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :price %>
+        <%= f.input :equipment_type %>
+        <%= f.input :location %>
+        <%= f.input :photo, as: :file %>
+        <div class="d-flex justify-content-between align-items-center btn">
+          <%= link_to icon('fas', 'times', "Cancel"), listings_path, class: "btn" %>
+          <%= f.submit %>
+        </div>
+      <% end %>
