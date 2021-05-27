@@ -4,8 +4,13 @@ html, body {
   padding: 0;
 }
 
+div.homecontainer > div > form > div > div > label {
+  display: none;
+}
+
 .homecontainer {
   padding-top: 50px;
   height: calc(100% - 56px);
-  background-size: cover;
+  background-image: url(home.jpg);
+  background-size:cover;
 }
