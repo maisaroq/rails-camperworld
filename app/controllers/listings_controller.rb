@@ -3,12 +3,14 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: [:show]
 
   def index
-    @listings = policy_scope(Listing) # refers to the listing_policy and resolce method
+     # refers to the listing_policy and resolce method
     @search = params["search"]
     if @search.present?
       @location = @search["location"]
       @listings = Listing.where(location: @location)
+      @listings = Listing.where("location ILIKE ?", "%#{@location}%")
     end
+    @listings = policy_scope(Listing)
   end
 
   def new
@@ -38,6 +40,6 @@ class ListingsController < ApplicationController
   end
 
   def listing_params
-    params.require(:listing).permit(:name, :description, :price, :equipment_type, :location, :image)
+    params.require(:listing).permit(:name, :description, :price, :equipment_type, :location, :photo)
   end
 end

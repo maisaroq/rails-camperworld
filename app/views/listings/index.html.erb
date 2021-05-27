@@ -1,31 +1,37 @@
 <header>
   <div class="container" justify-content-center>
-    <% if @search %>
-      <h1>Available listings in <%= params[:search]["location"] %></h1>
-    <% else %>
-      <h1>Available listings</h1>
-    <% end %>
+     <h1>
+       <% if @search %>
+        <%= "Available listings in #{params[:search]["location"]}" %>
+       <% else %>
+        <%= "All available listings" %>
+       <% end %>
+    </h1>
   </div>
 </header>
 
 <main>
 
   <div class="container" >
-    <%= simple_form_for :search, url: listings_path, method: :get do |f| %>
+    <%= simple_form_for :search, url: listings_path, method: "GET" do |f| %>
       <div class="search-form-control form-group">
-        <input class="form-control string required" placeholder="search for another location" type="text" name="search[query]" id="search_query" />
-        <button name="button" type="submit" class="btn btn-flat">
-          <i class="fas fa-search"></i>
-        </button>
+        <%= f.input :location, input_html: {value: "" , class: "form-control string required", autocomplete: "off"  }, placeholder: "search for another location", type:"text", name:"search[query]", id:"search_query" %>
+        <%= f.submit "search", class: "btn btn-flat" %>
       </div>
     <% end %>
+    <br>
+
 
     <div class="row">
       <% @listings.each do |listing| %>
         <div class="col col-sm-6 col-lg-4">
           <%= link_to listing_path(listing) do %>
             <div class="card-trip">
-              <%= cl_image_tag listing.image.key %>
+              <% if listing.photo.attached? %>
+                <%= cl_image_tag listing.photo.key %>
+              <% else %>
+                <%= image_tag(listing.listing_photo)%>
+              <% end %>
               <div class="card-trip-infos">
                 <div>
                   <h2><%= listing.name %> | <%= listing.location %></h2>

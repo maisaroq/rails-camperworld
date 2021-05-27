@@ -33,10 +33,14 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
 });
 
+import { initFlatpickr } from "../plugins/flatpickr";
 import { loadDynamicBannerText } from '../components/banner';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   // [...]
+  initFlatpickr();
   loadDynamicBannerText();
 });
+
+
