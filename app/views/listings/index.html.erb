@@ -1,12 +1,11 @@
 <header>
   <div class="container" justify-content-center>
      <h1>
-       <%= if params[:search].present?
-              "Available listings in #{params[:search]["location"]}"
-            else
-              "All available listings"
-            end
-        %>
+       <% if @search %>
+        <%= "Available listings in #{params[:search]["location"]}" %>
+       <% else %>
+        <%= "All available listings" %>
+       <% end %>
     </h1>
   </div>
 </header>

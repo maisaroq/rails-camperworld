@@ -4,6 +4,8 @@ class Listing < ApplicationRecord
 
   TYPE = ["van", "tent", "cooking supplies", "technology", "other"]
 
+  has_many :reservations
+
   validates :name, :price, presence: true
   validates :description, presence: :true, length: { minimum: 50 }
   validates :location, presence: true
