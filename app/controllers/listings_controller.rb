@@ -38,6 +38,13 @@ class ListingsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    @listing.update(listing_params)
+  end
+
   private
 
   def set_listing
