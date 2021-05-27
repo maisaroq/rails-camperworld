@@ -9,6 +9,7 @@ class ListingsController < ApplicationController
     if @search.present?
       @location = @search["location"]
       @listings = Listing.where(location: @location)
+      @listings = Listing.where("location ILIKE ?", "%#{@location}%")
     end
     @listings = policy_scope(Listing)
   end
