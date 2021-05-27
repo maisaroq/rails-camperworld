@@ -3,12 +3,14 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: [:show]
 
   def index
-    @listings = policy_scope(Listing) # refers to the listing_policy and resolce method
+     # refers to the listing_policy and resolce method
     @search = params["search"]
+    byebug
     if @search.present?
       @location = @search["location"]
       @listings = Listing.where(location: @location)
     end
+    @listings = policy_scope(Listing)
   end
 
   # def search
