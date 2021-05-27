@@ -9,7 +9,11 @@
   </div>
   <div class="row justify-content-center">
     <div class="col-4">
-      <%= cl_image_tag @listing.image.key, class: "img-responsive", width: "100%" %>
+      <% if @listing.photo.attached? %>
+        <%= cl_image_tag @listing.image.key, class: "img-responsive", width: "100%" %>
+      <% else %>
+        <%= image_tag(@listing.image, class: "img-responsive", width: "100%") %>
+      <% end %>
     </div>
     <div class="listing-info col-6">
       <p><%= icon('fas', 'map-marker-alt') %> <%= @listing.location %></p>
