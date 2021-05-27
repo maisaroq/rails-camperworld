@@ -29,12 +29,12 @@ puts user.id
 #puts ""
 #puts "---Creating 20 fake products..."
 20.times do
-  Listing.create(
+  Listing.create!(
     name: "name",
-    description: "description",
+    description: "description88888888888888888888888888888888888888888888888888jhdcjhuchehduehuehueiejihihigugugugfuyfyfyuihihih shjh",
     price: 20.00,
     equipment_type: ["Tent", "Campervan", "Cooker", "Survival Kit", "Backpack"].sample,
-#    image: "https://source.unsplash.com/random",
+    image: "https://source.unsplash.com/random",
     user_id: user.id,
     location: "Berlin"
   )
