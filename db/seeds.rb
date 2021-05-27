@@ -14,7 +14,7 @@ Listing.destroy_all
 
 user = User.create(email: 'camperworld@gmail.com', password: '123456')
 #listing = Listing.create(user: User.first, name: "tent", description: "a dark green tent was made in 1970 served campers from all over the world 7777777777", price: 20.00, location: "Berlin",equipment_type: "Tent", image: "https://source.unsplash.com/random")
-
+puts user.id
 #puts "--Creating 15 fake users"
 #15.times do
 #  user = User.new(
@@ -34,10 +34,12 @@ user = User.create(email: 'camperworld@gmail.com', password: '123456')
     description: "description",
     price: 20.00,
     equipment_type: ["Tent", "Campervan", "Cooker", "Survival Kit", "Backpack"].sample,
-    image: "https://source.unsplash.com/random",
+#    image: "https://source.unsplash.com/random",
     user_id: user.id,
     location: "Berlin"
   )
 end
+puts user.id
+puts Listing.all
 puts "---Done creating products!"
 
