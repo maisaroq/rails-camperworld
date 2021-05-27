@@ -5,7 +5,6 @@ class ListingsController < ApplicationController
   def index
      # refers to the listing_policy and resolce method
     @search = params["search"]
-    byebug
     if @search.present?
       @location = @search["location"]
       @listings = Listing.where(location: @location)
@@ -45,6 +44,6 @@ class ListingsController < ApplicationController
   end
 
   def listing_params
-    params.require(:listing).permit(:name, :description, :price, :equipment_type, :location, :image)
+    params.require(:listing).permit(:name, :description, :price, :equipment_type, :location, :photo)
   end
 end
