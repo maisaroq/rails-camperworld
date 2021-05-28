@@ -4,13 +4,12 @@ class ListingsController < ApplicationController
 
   def index
      # refers to the listing_policy and resolce method
+    @listings = policy_scope(Listing)
     @search = params["search"]
     if @search.present?
       @location = @search["location"]
-      @listings = Listing.where(location: @location)
-      @listings = Listing.where("location ILIKE ?", "%#{@location}%")
+      @listings = @listings.where("location ILIKE ?", "%#{@location}%")
     end
-    @listings = policy_scope(Listing)
 
     @markers = @listings.geocoded.map do |listing|
       {
