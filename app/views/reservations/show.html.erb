@@ -9,6 +9,47 @@
 <!-- be careful -> the presentation schema has changed, now we are using 2 dates and not one -->
 
 
+<!-- there should be something like destroy or proceed -->
 
-<p>functionality explained in comments</p>
-<p>your code here ;)</p>
+<%= @listing.name %>
+<%= @reservation.starts_at %>
+<%= @reservation.ends_at %>
+
+<p>listing id: <%= @listing.id %> </p>
+<p>reservation id: <%= @reservation.id %> </p>
+
+
+
+
+<div class="container">
+  <div class="row align-items-center mb-3">
+    <div class="col-2">
+      <p><%= link_to icon('fas', 'chevron-left', "Back"), :back, class: "btn" %></p>
+    </div>
+    <div class="col-8">
+      <h1>Confirmation</h1>
+      <h1 class="text-center"><strong><%= @listing.name %></strong></h1>
+    </div>
+    <div class ="showBtn col-2">
+        <%= link_to icon('fas fa-edit', "Edit"), edit_listing_path(@listing),class: "btn btn-flat"%>
+        <%= link_to icon('fas fa-trash', 'Delete'), listing_path, method: :delete, class: "btn btn-flat" %>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <% if @listing.photo.attached? %>
+        <%= cl_image_tag @listing.photo.key, class: "img-responsive", width: "100%" %>
+      <% else %>
+        <%= image_tag(@listing.listing_photo, class: "img-responsive", width: "100%") %>
+      <% end %>
+    </div>
+    <div class="listing-info col-4">
+      <p><%= icon('fas', 'map-marker-alt') %> <%= @listing.location %></p>
+      <p><strong><%= @listing.price %>€</strong></p>
+      <p><%= icon('fas', 'hashtag') %> <%= @listing.equipment_type %></p>
+      <p><%= @listing.description %></p>
+
+    </div>
+  </div>
+</div>
