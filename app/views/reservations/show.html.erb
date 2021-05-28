@@ -11,31 +11,21 @@
 
 <!-- there should be something like destroy or proceed -->
 
-<%= @listing.name %>
-<%= @reservation.starts_at %>
-<%= @reservation.ends_at %>
 
-<p>listing id: <%= @listing.id %> </p>
+<!-- <p>listing id: <%= @listing.id %> </p>
 <p>reservation id: <%= @reservation.id %> </p>
-
-
+ -->
 
 
 <div class="container">
   <div class="row align-items-center mb-3">
     <div class="col-2">
-      <p><%= link_to icon('fas', 'chevron-left', "Back"), :back, class: "btn" %></p>
     </div>
-    <div class="col-8">
-      <h1>Confirmation</h1>
-      <h1 class="text-center"><strong><%= @listing.name %></strong></h1>
-    </div>
-    <div class ="showBtn col-2">
-        <%= link_to icon('fas fa-edit', "Edit"), edit_listing_path(@listing),class: "btn btn-flat"%>
-        <%= link_to icon('fas fa-trash', 'Delete'), listing_path, method: :delete, class: "btn btn-flat" %>
+    <div class="col-8 mt-5">
+      <h1 class="text-center">Reservation confirmed</h1>
+      <h1 class="text-center"><strong>Camper: <%= @listing.name %></strong></h1>
     </div>
   </div>
-
   <div class="row justify-content-center">
     <div class="col-4">
       <% if @listing.photo.attached? %>
@@ -48,8 +38,8 @@
       <p><%= icon('fas', 'map-marker-alt') %> <%= @listing.location %></p>
       <p><strong><%= @listing.price %>€</strong></p>
       <p><%= icon('fas', 'hashtag') %> <%= @listing.equipment_type %></p>
-      <p><%= @listing.description %></p>
-
+      <p>booked from: <strong><%= @reservation.starts_at %></strong> to: <strong><%= @reservation.ends_at %></strong></p>
+      <p><%= link_to "My Reservations", user_my_reservations_path(current_user) %></p>
     </div>
   </div>
 </div>
