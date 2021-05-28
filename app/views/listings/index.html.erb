@@ -19,7 +19,9 @@
     <%= simple_form_for :search, url: listings_path, method: "GET" do |f| %>
       <div class="search-form-control form-group">
         <%= f.input :location, input_html: {value: "" , class: "form-control string required", autocomplete: "off"  }, placeholder: "search for another location", type:"text", name:"search[query]", id:"search_query", label: false %>
-        <%= f.submit "search", class: "btn btn-flat" %>
+        <%= button_tag type: "submit", id: "search_btn" do %>
+          <i class="fas fa-search"></i>
+        <% end %>
       </div>
     <% end %>
     <br>
