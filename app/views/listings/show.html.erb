@@ -26,8 +26,8 @@
       <p><%= icon('fas', 'hashtag') %> <%= @listing.equipment_type %></p>
       <p><%= @listing.description %></p>
       <div class="reservation-box">
-        <strong>Book now:</strong>
-        <%= simple_form_for :search, method: "get" do |f| %>
+        <h2>Reserve now:</h2>
+        <%= simple_form_for ([@listing, @reservation]) do |f| %>
           <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_start"} %>
           <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_end"} %>
           <%= f.button :submit, "Reserve", class: "btn", id: "btn-all" %>

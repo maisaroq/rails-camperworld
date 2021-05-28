@@ -9,8 +9,8 @@ Rails.application.routes.draw do
     collection do
       get :my_listings
     end
-    resources :reservations, only: [ :index, :new, :create] do # for show we just need the id, doesn't to be inside of the loop
+    resources :reservations, only: [ :index, :new, :create, :show] do 
       get :my_reservations
     end
-  end # the show will never be used, I'll use the show of listings
+  end 
 end
