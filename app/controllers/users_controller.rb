@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   end
 
   def my_reservations
+    @reservations = Reservation.where(user_id: current_user)
   end
 
   private

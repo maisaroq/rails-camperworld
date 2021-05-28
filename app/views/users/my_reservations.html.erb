@@ -5,4 +5,12 @@
 </header>
 
 <main>
+  <div class="container">
+      <% @reservations.each do |myreservation| %>
+        <div class="card">
+          <%= icon('fas', 'calendar-alt') %> From <%= myreservation.starts_at %> to <%= myreservation.ends_at %>
+          Booked from user: <%= myreservation.user_id %>
+        </div>
+      <% end %>
+  </div>
 </main>
