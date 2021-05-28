@@ -1,7 +1,13 @@
 <div class="container text-center">
-  <h1> Your Profile </h1>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" alt="" class="avatar-large">
+  <h1 class="d-inline"> Your Profile </h1> <%= link_to icon('fas fa-edit', "Edit"), edit_user_path(current_user), class: "btn pt-0 pr-0 text-muted" %>
+  <div>
+    <% if @user.avatar.attached? %>
+      <%= cl_image_tag @user.avatar.key, class: "avatar-large" %>
+    <% else %>
+      <img src="https://medgoldresources.com/wp-content/uploads/2018/02/avatar-placeholder-300x300.gif" alt="user-avatar" class="avatar-large">
+    <% end %>
+  </div>
+  <p> <strong>Name:</strong>  <%= @user.first_name %> </p>
   <p> <strong>Email:</strong>  <%= @user.email %> </p>
-  <p> <strong>Phone number:</strong> (186)285-7925 </p>
-  <p> <strong>Location:</strong> Berlin </p>
+  <p> <strong>Phone number:</strong> <%= @user.phone_number %> </p>
 </div>
