@@ -9,10 +9,9 @@
       <% @reservations.each do |myreservation| %>
         <div class="card-trip p-4">
           <div class="card-product-infos">
-            <p>
-              <%= icon('fas', 'calendar-alt') %> From <%= myreservation.starts_at %> to <%= myreservation.ends_at %>
-              Booked from user: <%= myreservation.user_id %>
-            </p>
+            <p><%= icon('fas', 'calendar-alt') %> From <%= myreservation.starts_at %> to <%= myreservation.ends_at %></p>
+            <p>Owner: <%= myreservation.user_id %></p> 
+            <p> Listing: <%= myreservation.listing_id %></p>
           </div>
         </div>
       <% end %>
