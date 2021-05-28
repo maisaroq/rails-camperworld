@@ -4,11 +4,6 @@ class ReservationsController < ApplicationController
 
   def index
     @reservations = policy_scope(Reservation) # refers to the reservation_policy and resolce method
-    # @search = params["search"]
-    # if @search.present?
-    #   @location = @search["location"]
-    #   @reservations = Listing.where(location: @location)
-    # end
   end
 
   def new
@@ -32,10 +27,8 @@ class ReservationsController < ApplicationController
     end
   end
 
-  def show
-  end
-  
-  def my_reservations 
+  def show # to be able see reservation oin the show (in the view show we do the confirmation)
+    @reservation = Reservation.find(params[:id])
   end
 
   private
