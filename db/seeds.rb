@@ -2,10 +2,10 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
 #puts "Deleting all prior users and listings"
-User.destroy_all
+Reservation.destroy_all
 Listing.destroy_all
+User.destroy_all
 
-user = User.create(email: 'camperworld@gmail.com', password: '123456')
 # puts user.id
 
 #listing = Listing.create(user: User.first, name: "tent", description: "a dark green tent was made in 1970 served campers from all over the world 7777777777", price: 20.00, location: "Berlin",equipment_type: "Tent", image: "https://source.unsplash.com/random")
@@ -27,10 +27,11 @@ user = User.create(email: 'camperworld@gmail.com', password: '123456')
 
 # Creating us as users for demo purposes
 puts "---Creating Users..."
-hannah = User.create(email: 'hannah@gmail.com', password: '123456')
-mais = User.create(email: 'mais@gmail.com', password: '123456')
-emily = User.create(email: 'emily@gmail.com', password: '123456')
-vojtech = User.create(email: 'vojtech@gmail.com', password: '123456')
+user = User.create(email: 'camperworld@gmail.com', password: '123456', first_name: "Default", phone_number: "-")
+hannah = User.create(email: 'hannah@gmail.com', password: '123456', first_name: "Hannah", phone_number: "+93 1-672-173-8153")
+mais = User.create(email: 'mais@gmail.com', password: '123456', first_name: "Mais", phone_number: "+95 1-672-173-8153")
+emily = User.create(email: 'emily@gmail.com', password: '123456', first_name: "Emily", phone_number: "+92 1-672-173-8153")
+vojtech = User.create(email: 'vojtech@gmail.com', password: '123456', first_name: "Vojtech", phone_number: "+93 1-672-173-8153")
 puts "---Done creating users!"
 
 # Creating associated Listings for demo purposes
