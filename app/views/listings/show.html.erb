@@ -6,6 +6,10 @@
     <div class="col-8">
       <h1 class="text-center"><strong><%= @listing.name %></strong></h1>
     </div>
+    <div class ="showBtn col-2">
+        <%= link_to icon('fas fa-edit', "Edit"), edit_listing_path(@listing),class: "btn btn-flat"%>
+        <%= link_to icon('fas fa-trash', 'Delete'), listing_path, method: :delete, class: "btn btn-flat" %>
+    </div>
   </div>
 
   <div class="row justify-content-center">
@@ -16,23 +20,21 @@
         <%= image_tag(@listing.listing_photo, class: "img-responsive", width: "100%") %>
       <% end %>
     </div>
-    <div class="listing-info col-6">
+    <div class="listing-info col-4">
       <p><%= icon('fas', 'map-marker-alt') %> <%= @listing.location %></p>
       <p><strong><%= @listing.price %>€</strong></p>
+      <p><%= icon('fas', 'hashtag') %> <%= @listing.equipment_type %></p>
       <p><%= @listing.description %></p>
-      <p><%= @listing.equipment_type %></p>
       <div class="reservation-box">
         <h2>Reserve now:</h2>
         <%= simple_form_for ([@listing, @reservation]) do |f| %>
           <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_start"} %>
           <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_end"} %>
-          <%= f.button :submit, "Reserve", class: "btn" %>
+          <%= f.button :submit, "Reserve", class: "btn", id: "btn-all" %>
         <% end %>
       </div>
+
       <%= link_to "TEST", new_listing_reservation_path(@listing) %>
     </div>
   </div>
 </div>
-
-<%= link_to 'Edit', edit_listing_path(@listing),class: "btn btn-flat" %>
-<%= link_to 'Delete', listing_path, method: :delete, class: "btn btn-flat" %>

@@ -3,14 +3,19 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
   def index
-    # refers to the listing_policy and resolve method
+    @listings = policy_scope(Listing)
     @search = params["search"]
     if @search.present?
       @location = @search["location"]
-      @listings = Listing.where(location: @location)
-      @listings = Listing.where("location ILIKE ?", "%#{@location}%")
+      @listings = @listings.where("location ILIKE ?", "%#{@location}%")
     end
-    @listings = policy_scope(Listing)
+
+    @markers = @listings.geocoded.map do |listing|
+      {
+        lat: listing.latitude,
+        lng: listing.longitude
+      }
+    end
   end
 
   def new
@@ -49,6 +54,10 @@ class ListingsController < ApplicationController
   def destroy
     @listing.destroy
     redirect_to listings_path
+  end
+
+  def my_listings
+    @listings = Listing.where(user_id: current_user)
   end
 
   private
