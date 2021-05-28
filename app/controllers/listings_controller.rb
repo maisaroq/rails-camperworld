@@ -1,9 +1,15 @@
 class ListingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
+
+     # refers to the listing_policy and resolce method
+    @user = current_user
+
     @listings = policy_scope(Listing)
+
     @search = params["search"]
     if @search.present?
       @location = @search["location"]
@@ -34,11 +40,17 @@ class ListingsController < ApplicationController
     end
   end
 
-  def show # thanks to set_listing we have not only @reservation here but also @listing
+
+  def show
+
+    @listing_user = @listing.user
     @reservation = Reservation.new
+
   end
 
+
   def edit
+
     authorize @listing
   end
 
@@ -64,6 +76,10 @@ class ListingsController < ApplicationController
 
   def set_listing
     @listing = Listing.find(params[:id])
+  end
+
+  def set_user
+    @user = current_user
   end
 
   def listing_params
