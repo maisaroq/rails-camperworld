@@ -30,7 +30,7 @@
       <% @listings.each do |listing| %>
         <div class="col col-sm-6 col-lg-4">
           <%= link_to listing_path(listing) do %>
-            <div class="card-trip">
+            <div class="card-trip" id="listing_card">
               <% if listing.photo.attached? %>
                 <%= cl_image_tag listing.photo.key %>
               <% else %>
