@@ -1,0 +1,12 @@
+<div class="container">
+  <%= simple_form_for current_user do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :email %>
+    <%= f.input :avatar, as: :file %>
+    <%#= f.input :location %>
+    <div class="d-flex justify-content-between align-items-center btn">
+      <%= link_to icon('fas', 'times', "Cancel"), listings_path, class: "btn" %>
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>
