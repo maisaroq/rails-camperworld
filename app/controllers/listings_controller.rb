@@ -3,7 +3,6 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
   def index
-     # refers to the listing_policy and resolce method
     @listings = policy_scope(Listing)
     @search = params["search"]
     if @search.present?
@@ -35,8 +34,8 @@ class ListingsController < ApplicationController
     end
   end
 
-  def show
-    @listing = Listing.find(params[:id]) # this should be done automatically though ?? ....
+  def show # thanks to set_listing we have not only @reservation here but also @listing
+    @reservation = Reservation.new
   end
 
   def edit
