@@ -46,8 +46,7 @@
         <%= simple_form_for ([@listing, @reservation]) do |f| %>
           <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_start"} %>
           <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_end"} %>
-          <%= f.button :submit, "Reserve", class: "btn", id: "btn-all" %>
-        <% end %>
+          <%= f.button :submit, "Reserve", class: "btn", id: "btn-all", data: { confirm: "Are you sure you want to make the reservation?"}%>        <% end %>
       </div>
     </div>
   </div>
