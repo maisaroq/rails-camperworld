@@ -1,15 +1,19 @@
 <header>
   <div class="container" justify-content-center>
-     <h1> All your reservations <%= current_user.first_name %>: </h1>
+     <h1> <%= current_user.first_name %>, here are all your reservations: </h1>
   </div>
 </header>
 
 <main>
   <div class="container">
       <% @reservations.each do |myreservation| %>
-        <div class="card">
-          <%= icon('fas', 'calendar-alt') %> From <%= myreservation.starts_at %> to <%= myreservation.ends_at %>
-          Booked from user: <%= myreservation.user_id %>
+        <div class="card-trip p-4">
+          <div class="card-product-infos">
+            <p>
+              <%= icon('fas', 'calendar-alt') %> From <%= myreservation.starts_at %> to <%= myreservation.ends_at %>
+              Booked from user: <%= myreservation.user_id %>
+            </p>
+          </div>
         </div>
       <% end %>
   </div>

@@ -1,6 +1,6 @@
 <header>
   <div class="container" justify-content-center>
-     <h1> All your listings <%= current_user.first_name %>: </h1>
+     <h1><%= current_user.first_name %>, here are all your listings: </h1>
   </div>
 </header>
 
@@ -9,7 +9,6 @@
     <div class="row">
       <% @listings.each do |listing| %>
         <div class="col-6">
-          <%= link_to listing_path(listing) do %>
             <div class="card-trip">
               <% if listing.photo.attached? %>
                 <%= cl_image_tag listing.photo.key %>
@@ -20,14 +19,18 @@
                 <div>
                   <h2><%= listing.name %> | <%= listing.location %> | €<%= listing.price %></h2>
                   <p><%= listing.description %></p>
+                  <hr>
+                  <p class="text-danger">Reservations for this listing: </p>
+                  <% listing.reservations.each do |reservation| %>
+                    <p>From <%= reservation.starts_at %> till <%= reservation.ends_at %></p>
+                  <% end %>
                 </div>
                 <div class="d-flex align-items-start">
                   <%= link_to icon('fas fa-edit', "Edit"), edit_listing_path(listing), class: "btn pt-0 pr-0 text-muted" %>
-                  <%= link_to icon('fas fa-trash', 'Delete'), listing_path(listing), method: :delete, class: "btn pt-0 pr-0 text-muted" %>
+                  <%= link_to icon('fas fa-trash', 'Delete'), listing_path(listing), method: :delete, data: { confirm: "Are you sure you want to completely delete #{listing.name}?"}, class: "btn pt-0 pr-0 text-muted" %>
                 </div>
               </div>
             </div>
-          <% end %>
         </div>
       <% end %>
     </div>
