@@ -4,15 +4,17 @@ class ListingsController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
+
      # refers to the listing_policy and resolce method
     @user = current_user
+
+    @listings = policy_scope(Listing)
+
     @search = params["search"]
     if @search.present?
       @location = @search["location"]
-      @listings = Listing.where(location: @location)
-      @listings = Listing.where("location ILIKE ?", "%#{@location}%")
+      @listings = @listings.where("location ILIKE ?", "%#{@location}%")
     end
-    @listings = policy_scope(Listing)
 
     @markers = @listings.geocoded.map do |listing|
       {
@@ -38,11 +40,12 @@ class ListingsController < ApplicationController
     end
   end
 
-  def show
-#    @listing_user = Listing.find(params[:user_id])
 
-    @listing = Listing.find(params[:id]) # this should be done automatically though ?? ....
+  def show
+
     @listing_user = @listing.user
+    @reservation = Reservation.new
+
   end
 
 
