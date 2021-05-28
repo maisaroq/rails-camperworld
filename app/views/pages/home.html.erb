@@ -5,15 +5,17 @@
     <br>
 
     <%= simple_form_for :search, url: listings_path, method: "GET" do |f| %>
-      <div class="search-form-control form-group">
+      <div class="search-form-control form-group" id="searchbar">
         <%= f.input :location, input_html: {value: "" , class: "form-control string required", autocomplete: "off" }, placeholder: "search for a location", type:"text", name:"search[query]", id:"search_query" %>
-        <%= f.submit "search", class: "btn btn-flat" %>
+        <%= button_tag type: "submit", id: "search_btn" do %>
+          <i class="fas fa-search"></i>
+        <% end %>
       </div>
     <% end %>
 
     <br>
 
-    <%= link_to "view all listings", listings_path, class: "btn btn-flat", id: "btn-all" %>
+    <%= link_to "view all", listings_path, class: "btn btn-flat", id: "btn-all" %>
 
   </div>
 </div>
