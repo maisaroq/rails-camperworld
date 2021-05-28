@@ -58,6 +58,10 @@ class ListingsController < ApplicationController
     redirect_to listings_path
   end
 
+  def my_listings
+    @listings = Listing.where(user_id: current_user)
+  end
+
   private
 
   def set_listing
