@@ -70,6 +70,7 @@ class ListingsController < ApplicationController
 
   def my_listings
     @listings = Listing.where(user_id: current_user)
+    # @reservations = Reservation.where(id: listing_id)
   end
 
   private
