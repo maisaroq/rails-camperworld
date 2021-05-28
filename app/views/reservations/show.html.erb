@@ -39,7 +39,7 @@
       <p><strong><%= @listing.price %>€</strong></p>
       <p><%= icon('fas', 'hashtag') %> <%= @listing.equipment_type %></p>
       <p>booked from: <strong><%= @reservation.starts_at %></strong> to: <strong><%= @reservation.ends_at %></strong></p>
-      <!-- <p><%= link_to #{}"My Reservations", user_my_reservations_path(current_user) %></p> -->
+      <p><%= link_to "My Reservations", user_my_reservations_path(current_user) %></p>
     </div>
   </div>
 </div>
