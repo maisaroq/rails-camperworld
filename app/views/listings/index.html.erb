@@ -19,12 +19,14 @@
     <%= simple_form_for :search, url: listings_path, method: "GET" do |f| %>
       <div class="search-form-control form-group">
         <%= f.input :location, input_html: {value: "" , class: "form-control string required", autocomplete: "off"  }, placeholder: "search for another location", type:"text", name:"search[query]", id:"search_query", label: false %>
-        <%= f.submit "search", class: "btn btn-flat" %>
+        <%= button_tag type: "submit", id: "search_btn" do %>
+          <i class="fas fa-search"></i>
+        <% end %>
       </div>
     <% end %>
     <br>
 
-    <div class="row">
+    <div class="row mt-5">
       <% @listings.each do |listing| %>
         <div class="col col-sm-6 col-lg-4">
           <%= link_to listing_path(listing) do %>
@@ -46,11 +48,13 @@
         </div>
       <% end %>
     </div>
+
+    <div id="map"
+       style="width: 100%; height: 600px;"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
 
-  <div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+
 </main>

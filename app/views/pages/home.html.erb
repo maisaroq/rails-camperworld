@@ -1,19 +1,21 @@
 <div class ="homecontainer" style="background-image: url(<%= asset_path 'home.jpg' %>)">
   <div class="container">
-    <h1>Whatever your outdoor heart desires: <span id="banner-typed-text"></span></h1>
+    <h1 id="tagline">Whatever your outdoor heart desires: <span id="banner-typed-text"></span></h1>
 
-    <br>
+    <h5 id="intro">Going on an adventure? Rent all the camping gear you need for your next trip! </h5>
 
     <%= simple_form_for :search, url: listings_path, method: "GET" do |f| %>
-      <div class="search-form-control form-group">
+      <div class="search-form-control form-group" id="searchbar">
         <%= f.input :location, input_html: {value: "" , class: "form-control string required", autocomplete: "off" }, placeholder: "search for a location", type:"text", name:"search[query]", id:"search_query" %>
-        <%= f.submit "search", class: "btn btn-flat" %>
+        <%= button_tag type: "submit", id: "search_btn" do %>
+          <i class="fas fa-search"></i>
+        <% end %>
       </div>
     <% end %>
 
     <br>
-
-    <%= link_to "view all listings", listings_path, class: "btn btn-flat", id: "btn-all" %>
-
+    <div id="view_btn">
+      <%= link_to "view all", listings_path, class: "btn btn-flat", id: "btn-all" %>
+    </div>
   </div>
 </div>
