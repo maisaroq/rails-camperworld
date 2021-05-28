@@ -21,11 +21,25 @@
       <% else %>
         <%= image_tag(@listing.listing_photo, class: "img-responsive", width: "100%") %>
       <% end %>
+      <div id="listing-owner" class="d-flex align-items-center pt-2">
+        <div>
+          <% if @listing.user.avatar.attached? %>
+            <%= cl_image_tag @listing.user.avatar.key, class: "avatar-large" %>
+          <% else %>
+            <img src="https://medgoldresources.com/wp-content/uploads/2018/02/avatar-placeholder-300x300.gif" alt="user-avatar" class="avatar-large">
+          <% end %>
+        </div>
+        <div class="pl-2">
+          <strong>Name:</strong> <%= @listing.user.first_name %>
+          <br>
+          <strong>Phone number:</strong> <%= @listing.user.phone_number %>
+        </div>
+      </div>
     </div>
     <div class="listing-info col-4">
-      <p><%= icon('fas', 'map-marker-alt') %> <%= @listing.location %></p>
-      <p><strong><%= @listing.price %>€</strong></p>
-      <p><%= icon('fas', 'hashtag') %> <%= @listing.equipment_type %></p>
+      <p><%= icon('fas', 'map-marker-alt') %> <%= @listing.location %> | <strong>€<%= @listing.price %></strong> per night</p>
+      <p></p>
+      <p><small><%= icon('fas', 'hashtag') %> <%= @listing.equipment_type %></small></p>
       <p><%= @listing.description %></p>
       <div class="reservation-box">
         <h2>Reserve now:</h2>

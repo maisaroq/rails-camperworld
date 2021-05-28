@@ -15,10 +15,14 @@
         <li><%= link_to icon('fas', 'plus', 'New listing'), new_listing_path, class: "nav-link" %></li>
         <li><%= link_to icon('fas', 'comments', 'Messages'), "#", class: "nav-link" %></li>
         <li class="nav-item dropdown">
-          <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if current_user.avatar.attached? %>
+            <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Profile", profile_path(current_user), class: "dropdown-item" %>
-            <%#= link_to "My Reservations", listing_reservation_my_reservations_path, class: "dropdown-item" %>
+            <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
+            <%= link_to "My Reservations", user_my_reservations_path(current_user), class: "dropdown-item" %>
             <%= link_to "My Listings", my_listings_listings_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
