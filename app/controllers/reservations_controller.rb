@@ -35,9 +35,6 @@ class ReservationsController < ApplicationController
   def show
   end
   
-  def my_reservations 
-  end
-
   private
 
   def set_listing

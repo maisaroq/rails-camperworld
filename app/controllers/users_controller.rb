@@ -18,6 +18,9 @@ class UsersController < ApplicationController
       end
   end
 
+  def my_reservations
+  end
+
   private
 
   def user_params
